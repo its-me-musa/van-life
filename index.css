@@ -6,7 +6,12 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: #FFF7ED;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
+}
+
+a {
+    text-decoration: unset;
+    color: unset;
 }
 
 body::-webkit-scrollbar {
@@ -41,14 +46,32 @@ header .site-logo {
 
 header a {
     text-decoration: none;
-    color: #4d4d4d;
+    color: #4D4D4D;
     font-weight: 600;
-    padding: 5px 20px;
+    padding: 5px 15px;
 }
 
 header a:hover {
     color: #161616;
     text-decoration: underline;
+}
+
+header button {
+    cursor: pointer;
+}
+
+header .login-icon {
+    height: 18px;
+    width: 18px;
+}
+
+header .login-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
 }
 
 main {
@@ -84,11 +107,10 @@ footer {
     display: block;
     color: black;
     text-decoration: none;
-    margin-top: 60px;
-    margin-left: 26px; 
+    margin-left: 26px;
 }
 
-.back-button:hover {
+.back-button span:hover {
     text-decoration: underline;
 }
 
@@ -96,7 +118,7 @@ footer {
     transform: translate(1px, 1px);
 }
 
-/* home page */
+/*** HOME PAGE ***/
 .home-container {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), url("./assets/images/home-hero.png") no-repeat center center;
     -webkit-background-size: cover;
@@ -106,8 +128,8 @@ footer {
     min-height: 350px;
     color: white;
     padding: 45px 23px;
-    
 }
+
 .home-container h1 {
     font-weight: 700;
     font-size: 2.25rem;
@@ -139,7 +161,7 @@ footer {
 }
 
 
-/* about page */
+/*** ABOUT PAGE ***/
 .about-hero-image {
     max-width: 100%;
 }
@@ -179,9 +201,18 @@ footer {
 }
 
 
-/* vans page */
+/*** VAN PAGES ***/
 .van-list-container {
     padding-inline: 23px
+}
+
+.van-list-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.van-list-filter-buttons > a {
+    margin-right: 15px;
 }
 
 .van-list {
@@ -259,9 +290,9 @@ footer {
 i[class*='van-type-'] {
     padding: 7px 14px;
 }
-/* van details */
+
 .van-detail-container {
-    padding: 27px;
+    padding-inline: 27px;
 }
 
 .van-detail-container .back-button {
@@ -311,10 +342,11 @@ i[class*='van-type-'] {
     background-color: #FF8C38;
     color: white;
     font-size: 1.125rem;
-} 
+}
 
 .host-nav {
     display: flex;
+    margin-bottom: 30px;
 }
 
 .host-nav a {
@@ -329,7 +361,7 @@ i[class*='van-type-'] {
     text-decoration: underline;
     font-weight: 600;
 }
-/* host van */
+
 .host-van-link-wrapper {
     color: unset;
     text-decoration: unset;
@@ -365,7 +397,7 @@ i[class*='van-type-'] {
 }
 
 .host-van-info p {
-    margin-block: 10px;    
+    margin-block: 10px;
 }
 
 .host-van-detail-layout-container {
@@ -404,9 +436,9 @@ i[class*='van-type-'] {
 
 .host-van-detail-nav a {
     text-decoration: none;
-    color: #4d4d4d;
+    color: #4D4D4D;
     font-weight: 500;
-    padding:  5px 20px;
+    padding: 5px 20px;
 }
 
 .host-van-detail-nav a:first-of-type {
@@ -447,17 +479,262 @@ i[class*='van-type-'] {
     border-radius: 5px;
 }
 
+.not-found-container {
+    padding-inline: 26px;
+}
 
+.not-found-container .link-button {
+    width: 100%;
+    background-color: #161616;
+    color: white;
+}
 
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 27px;
+}
 
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;    
+}
 
+.login-form > input {
+    border: 1px solid rgba(209, 213, 219);
+    height: 40px;
+    text-indent: 10px;
+    font-family: "Inter", sans-serif;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    font-weight: 400;
+}
 
+.login-form > input:focus {
+    outline: none;
+}
 
+.login-form > input:first-of-type {
+    border-radius: 6px 6px 0px 0px;
+}
 
-/* 
-a.active-link {
-    font-weight: bold;
-    text-decoration: underline;
+.login-form > input:last-of-type {
+    border-radius: 0px 0px 6px 6px;
+    border-top: none;
+}
+
+.login-form > button {
+    background-color: #FF8C38;
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    margin-top: 22px;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+
+.login-form > button:disabled {
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+}
+
+.red {
+    color: #cc0000;
+}
+
+.host-dashboard-earnings {
+    background-color: #ffead0;
+    padding: 37px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.host-dashboard-earnings > .info > h1 {
+    font-size: 36px;
     color: #161616;
-} */
+    margin: 0;
+}
 
+.host-dashboard-earnings > .info > p {
+    color: #4d4d4d;
+}
+
+.host-dashboard-earnings > .info > p > span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.host-dashboard-earnings > .info > h2 {
+    margin: 0;
+    font-size: 38px;
+    color: #161616;
+    font-weight: 900;
+}
+
+.host-dashboard-reviews {
+    background-color: #ffddb2;
+    padding: 25px 26px;
+    display: flex;
+    align-items: center;
+}
+
+.host-dashboard-reviews > h2 {
+    margin: 0;
+}
+
+.host-dashboard-reviews .star {
+    color: #ff8c38;
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+.host-dashboard-reviews p {
+    margin-left: 5px;
+    font-size: 20px;
+    color: #4d4d4d;
+    margin-right: auto;
+}
+
+.host-dashboard-reviews p > span {
+    font-weight: bold;
+    color: #161616;
+}
+
+.host-dashboard-vans {
+    padding: 38px 26px;
+}
+
+.host-dashboard-vans > .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.host-dashboard-vans .host-vans-list {
+    padding-inline: 0;
+}
+
+.host-income {
+    padding-inline: 26px;
+    color: #161616;
+}
+
+.host-income > p {
+    color: #4d4d4d;
+}
+
+.host-income > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.host-income > h2 {
+    font-size: 38px;
+    color: #161616;
+    font-weight: 900;
+}
+
+img.graph {
+    width: 100%;
+    max-width: 500px;
+}
+
+.host-income .info-header > p {
+    color: #4d4d4d;
+}
+
+.host-income .info-header > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.host-income .info-header > h3 {
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 60px;
+}
+
+.host-income .transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 31px;
+    padding: 35px 29px;
+    border-radius: 6px;
+}
+.host-income .transaction > h3 {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.host-income .transaction > p {
+    font-weight: 500;
+    font-size: 20px;
+    color: #4d4d4d;
+}
+
+.host-reviews {
+    padding-inline: 26px;
+    color: #161616;
+}
+
+.host-reviews .top-text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.host-reviews .top-text > h2 {
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0;
+    margin-right: 20px;
+}
+
+.host-reviews .top-text > p {
+    margin: 0;
+    color: #4d4d4d;
+}
+
+.host-reviews .top-text > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.host-reviews > img {
+    margin-bottom: 36px;
+}
+
+.host-reviews .review {
+    margin-block: 25px;
+}
+
+.host-reviews .review .info {
+    display: flex;
+}
+
+.host-reviews .review .name {
+    color: #161616;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.host-reviews .review .date {
+    color: #8c8c8c;
+}
+
+.host-reviews hr {
+    background-color: #c7c7c7;
+    height: 1px;
+    border: 0;
+}
+
+.host-reviews .review-star {
+    color: #ff8c38;
+    margin-right: 5px;
+}
